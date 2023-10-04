@@ -1,0 +1,26 @@
+{% load draw_menu_recursive %}
+
+<ul>
+    {% if iteration == 0 %}
+        <li>
+
+            <a href="{% url 'draw_menu' menu_path=menu_items.0.url %}">{{ menu_items.0.title }}</a>
+            {% if menu_items.0.children.all and menu_items.0.title in path %}
+                <ul class="submenu">
+                    {% draw_menu_recursive path menu_items.0.children.all iteration %}
+                </ul>
+            {% endif %}
+        </li>
+    {% else %}
+        {% for item in menu_items %}
+            <li>
+                <a href="{% url 'draw_menu' menu_path=item.url %}">{{ item.title }}</a>
+                {% if item.children.all and item.title in path %}
+                    <ul class="submenu">
+                        {% draw_menu_recursive path item.children.all iteration %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    {% endif %}
+</ul>
