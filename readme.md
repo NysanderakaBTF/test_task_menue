@@ -1,21 +1,26 @@
 How to run project
 
-1. Apply migrations
+1. Install django
+````shell
+pip install Django
+````
+
+2. Apply migrations
 
 ```shell
 python manage.py migrate
 ```
 
-2. create superuser
+3. create superuser
 
 ```shell
 python manage.py createsuper
 ```
-3. run project
+4. run project
 ````shell
 python manage.py runserver
 ````
-4. create menu items (menu title must be in path)
+5. create menu items (menu title must be in path)
 
 Example:
 
