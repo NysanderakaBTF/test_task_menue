@@ -1,5 +1,4 @@
 from django import template
-from menue.models import Menue
 
 register = template.Library()
 
