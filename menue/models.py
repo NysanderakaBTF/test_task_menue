@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Menue(models.Model):
@@ -7,4 +8,5 @@ class Menue(models.Model):
     url = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.title +'-'+ self.url
+        return f"{self.title}-{self.url}"
+
